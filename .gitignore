@@ -2,3 +2,4 @@ nimcache/
 nimraylib
 examples/core_basic_window
 examples/core_keyboard_input
+examples/core_mouse_input

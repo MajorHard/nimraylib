@@ -31,5 +31,3 @@ const
   Blank*      = newColor( 0,     0,   0, 0   )
   Magenta*    = newColor( 255,   0, 255, 255 )
   RayWhite*   = newColor( 245, 245, 245, 255 )
-
-proc to_cint*(key: KeyboardKey): cint = cast[cint](key)
