@@ -1,7 +1,7 @@
 import nimraylib/raylib
 export raylib
 
-proc newColor*(r, b, g, a: int): Color =
+proc newColor*(r, g, b, a: int): Color =
   Color(r: cast[cuchar](r), b: cast[cuchar](b), g: cast[cuchar](g), a: cast[cuchar](a))
 
 const
