@@ -4,7 +4,7 @@ const
   screenWidth = 800
   screenHeight = 450
 
-InitWindow(screenWidth, screenHeight, "raylib [core] examples - 3d picking")
+initWindow(screenWidth, screenHeight, "raylib [core] examples - 3d picking")
 
 var
   ray: Ray
@@ -20,13 +20,13 @@ var
   )
 
 camera.SetCameraMode(CAMERA_FREE)
-SetTargetFPS(60)
+setTargetFPS(60)
 
 
-while not WindowShouldClose():
-  UpdateCamera(addr camera)
+while not windowShouldClose():
+  updateCamera(addr camera)
 
-  if IsMouseButtonPressed(MOUSE_LEFT_BUTTON):
+  if isMouseButtonPressed(MOUSE_LEFT_BUTTON):
     if collision:
       collision = false
     else:
@@ -41,17 +41,17 @@ while not WindowShouldClose():
           y: cubePosition.y + cubeSize.y / 2,
           z: cubePosition.z + cubeSize.z / 2
         ))
-      ray = GetMouseRay(GetMousePosition(), camera)
+      ray = getMouseRay(getMousePosition(), camera)
       collision = ray.CheckCollisionRayBox(boundingBox)
 
   block draw:
-    BeginDrawing()
-    defer: EndDrawing()
-    ClearBackground(RayWhite)
+    beginDrawing()
+    defer: endDrawing()
+    clearBackground(RayWhite)
 
     block draw3d:
-      BeginMode3D(camera)
-      defer: EndMode3D()
+      beginMode3D(camera)
+      defer: endMode3D()
 
       if collision:
         cubePosition.DrawCube(cubeSize.x, cubeSize.y, cubeSize.z, Red)
@@ -61,15 +61,15 @@ while not WindowShouldClose():
         cubePosition.DrawCube(cubeSize.x, cubeSize.y, cubeSize.z, Gray)
         cubePosition.DrawCubeWires(cubeSize.x, cubeSize.y, cubeSize.z, DarkGray)
 
-      DrawGrid(10, 1)
+      drawGrid(10, 1)
 
-    DrawText("Try selecting the box with mouse!", 240, 10, 20, DarkGray)
+    drawText("Try selecting the box with mouse!", 240, 10, 20, DarkGray)
 
     if collision:
-      var posX = (screenWidth - MeasureText("BOX SELECTED", 30)) / 2
-      DrawText("BOX SELECTED", posX.int32, (screenHeight * 0.2).int32, 30, Green)
+      var posX = (screenWidth - measureText("BOX SELECTED", 30)) / 2
+      drawText("BOX SELECTED", posX.int32, (screenHeight * 0.2).int32, 30, Green)
 
-    DrawText("Welcome to the thrid dimension!", 10, 40, 20, DarkGray)
-    DrawFPS(10, 10)
+    drawText("Welcome to the thrid dimension!", 10, 40, 20, DarkGray)
+    drawFPS(10, 10)
 
-CloseWindow()
+closeWindow()

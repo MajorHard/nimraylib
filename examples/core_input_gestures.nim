@@ -5,7 +5,7 @@ const
   screenHeight = 450
   maxGestureString = 20
 
-InitWindow(screenWidth, screenHeight, "raylib [core] examples - input gestures")
+initWindow(screenWidth, screenHeight, "raylib [core] examples - input gestures")
 
 var
   finger1 = Vector2( x: 0, y: 0 )
@@ -16,13 +16,13 @@ var
   currentGesture= GestureType.GESTURE_NONE
   lastGesture = GestureType.GESTURE_NONE
 
-SetTargetFPS(60)
+setTargetFPS(60)
 
-while not WindowShouldClose():
+while not windowShouldClose():
   lastGesture = currentGesture
-  currentGesture = GetGestureDetected()
-  finger1 = GetTouchPosition(0)
-  finger2 = GetTouchPosition(0)
+  currentGesture = getGestureDetected()
+  finger1 = getTouchPosition(0)
+  finger2 = getTouchPosition(0)
 
   if currentGesture != lastGesture and currentGesture != GESTURE_NONE:
     case currentGesture:
@@ -45,26 +45,24 @@ while not WindowShouldClose():
         gestureCount = 0
 
   block draw:
-    BeginDrawing()
-    defer: EndDrawing()
-    ClearBackground(RayWhite)
+    beginDrawing()
+    defer: endDrawing()
+    clearBackground(RayWhite)
 
-    DrawRectangleRec(touchArea, Gray)
-    DrawRectangle(225, 15, screenWidth - 240, screenHeight - 30, RayWhite)
-    DrawText("GESTURE TEST AREA", screenWidth - 270, screenHeight - 40, 20, Fade(Gray, 0.5))
+    drawRectangleRec(touchArea, Gray)
+    drawRectangle(225, 15, screenWidth - 240, screenHeight - 30, RayWhite)
+    drawText("GESTURE TEST AREA", screenWidth - 270, screenHeight - 40, 20, Gray.fade(0.5))
 
     for i in 0..gestureCount:
-      if i mod 2 == 0: DrawRectangle(10, 30 + 20 * i, 200, 20, Fade(LightGray, 0.5))
-      else: DrawRectangle(10, 30 + 20 * i, 200, 20, Fade(LightGray, 0.3))
+      if i mod 2 == 0: drawRectangle(10, 30 + 20 * i, 200, 20, LightGray.fade(0.5))
+      else: drawRectangle(10, 30 + 20 * i, 200, 20, LightGray.fade(0.3))
 
-      if (i < gestureCount): DrawText(gestureStrings[i], 35, 36 + 20 * i, 10, DarkGray)
-      else: DrawText(gestureStrings[i], 35, 36 + 20 * i, 10, Maroon)
-    DrawRectangleLines(10, 29, 200, screenHeight - 50, Gray)
-    DrawText("DETECT GESTURES", 50, 15, 10, Gray)
+      if (i < gestureCount): drawText(gestureStrings[i], 35, 36 + 20 * i, 10, DarkGray)
+      else: drawText(gestureStrings[i], 35, 36 + 20 * i, 10, Maroon)
+    drawRectangleLines(10, 29, 200, screenHeight - 50, Gray)
+    drawText("DETECT GESTURES", 50, 15, 10, Gray)
 
-    if currentGesture != GESTURE_NONE: DrawCircleV(finger1, 30, Maroon)
-    if currentGesture != GESTURE_NONE: DrawCircleV(finger2, 30, Maroon)
+    if currentGesture != GESTURE_NONE: drawCircleV(finger1, 30, Maroon)
+    if currentGesture != GESTURE_NONE: drawCircleV(finger2, 30, Maroon)
 
-
-
-CloseWindow()
+closeWindow()

@@ -4,7 +4,7 @@ const
   screenWidth = 800
   screenHeight = 450
 
-InitWindow(screenWidth, screenHeight, "raylib [core] examples - 3d camera mode")
+initWindow(screenWidth, screenHeight, "raylib [core] examples - 3d camera mode")
 
 var
   camera = Camera3D(
@@ -17,21 +17,21 @@ var
 
   cubePosition = Vector3(x: 0, y: 0, z: 0)
 
-while not WindowShouldClose():
+while not windowShouldClose():
   block draw:
-    BeginDrawing()
-    defer: EndDrawing()
-    ClearBackground(RayWhite)
+    beginDrawing()
+    defer: endDrawing()
+    clearBackground(RayWhite)
 
     block draw3d:
-      BeginMode3D(camera)
-      defer: EndMode3D()
+      beginMode3D(camera)
+      defer: endMode3D()
 
-      DrawCube(cubePosition, 2, 2, 2, Red)
-      DrawCubeWires(cubePosition, 2, 2, 2, Maroon)
-      DrawGrid(10, 1)
+      drawCube(cubePosition, 2, 2, 2, Red)
+      drawCubeWires(cubePosition, 2, 2, 2, Maroon)
+      drawGrid(10, 1)
 
-    DrawText("Welcome to the thrid dimension!", 10, 40, 20, DarkGray)
-    DrawFPS(10, 10)
+    drawText("Welcome to the thrid dimension!", 10, 40, 20, DarkGray)
+    drawFPS(10, 10)
 
-CloseWindow()
+closeWindow()
