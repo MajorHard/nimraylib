@@ -1,3 +1,4 @@
 nimcache/
-nimraylib/*
+nimraylib
 examples/core_basic_window
+examples/core_keyboard_input
