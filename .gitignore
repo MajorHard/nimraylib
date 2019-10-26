@@ -5,3 +5,4 @@ examples/core_keyboard_input
 examples/core_mouse_input
 examples/core_mouse_wheel
 examples/core_input_gestures
+examples/core_2d_camera
