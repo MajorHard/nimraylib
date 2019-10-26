@@ -7,3 +7,4 @@ examples/core_mouse_wheel
 examples/core_input_gestures
 examples/core_2d_camera
 examples/core_3d_camera
+examples/core_3d_picking
